@@ -1,0 +1,277 @@
+package hw2;
+
+/**
+ * Simplified model of American baseball.
+ * 
+ * THIS CODE WILL NOT COMPILE UNTIL YOU HAVE ADDED STUBS FOR ALL METHODS
+ * SPECIFIED IN THE JAVADOC
+ * 
+ * @author Mason Walls
+ */
+public class CS227Baseball {
+	public static final int BALL = 0;
+	public static final int STRIKE = 1;
+	public static final int POP_FLY = 2;
+	public static final int MAX_STRIKES = 3;
+	public static final int MAX_BALLS = 4;
+	public static final int MAX_OUTS = 3;
+	private boolean isOver = false;
+	private int numBalls = 0;
+	private int numStrikes = 0;
+	private int numOuts = 0;
+	private int team1Score = 0;
+	private int team2Score = 0;
+	private boolean isTopInning = true;
+	private int inningNum = 1;
+	private int totalInnings;
+	private boolean[] Base = new boolean[4];
+
+	public CS227Baseball(int givenNumInnings) {
+		for (int i = 0; i < 4; i++)
+			Base[i] = false;
+		isTopInning = true;
+		totalInnings = givenNumInnings;
+	}
+
+	// Takes outcome, and accounts for strike, ball, pop fly
+	// if strikes>2 or balls>3, player is out or moves the bases
+	public void pitch(int outcome) {
+		if (!isOver) {
+			if (outcome == 0)
+				numBalls++;
+			if (outcome == 1)
+				numStrikes++;
+			if (outcome == 2) {
+				numOuts++;
+				numStrikes = 0;
+				numBalls = 0;
+			}
+			if (numStrikes == 3) {
+				numOuts++;
+				numStrikes = 0;
+				numBalls = 0;
+			}
+			if (numBalls == 4) {
+				advanceRunners(true);
+			}
+			if (numOuts == 3) {
+				numBalls = 0;
+				numStrikes = 0;
+				numOuts = 0;
+				if (!isTopInning)
+					inningNum++;
+				isTopInning = !isTopInning;
+			}
+			if (inningNum > totalInnings)
+				isOver = true;
+		}
+
+	}
+
+	// Sets num strikes to 0, and calls advanceRunners, numBases times
+	public void pitchWithHit(int numBases) {
+		if (!isOver) {
+			numStrikes = 0;
+			if (numBases == 1)
+				advanceRunners(true);
+			else if (numBases == 2) {
+				advanceRunners(true);
+				advanceRunners(false);
+			} else if (numBases == 3) {
+				advanceRunners(true);
+				advanceRunners(false);
+				advanceRunners(false);
+			} else {
+				advanceRunners(true);
+				advanceRunners(false);
+				advanceRunners(false);
+				advanceRunners(false);
+			}
+		}
+	}
+
+	// Calls advanceRunnesre numBases times, and sees if there is a runner on
+	// whichBaseFielded-1, if so, hes out
+	public void pitchWithHitAndOut(int numBases, int whichBaseFielded) {
+		if (!isOver) {
+			numStrikes = 0;
+			if (numBases == 1)
+				advanceRunners(true);
+			else if (numBases == 2) {
+				advanceRunners(true);
+				advanceRunners(false);
+			} else if (numBases == 3) {
+				advanceRunners(true);
+				advanceRunners(false);
+				advanceRunners(false);
+			} else {
+				advanceRunners(true);
+				advanceRunners(false);
+				advanceRunners(false);
+				advanceRunners(false);
+			}
+			if (whichBaseFielded == 4 && Base[3] == true) {
+				numOuts++;
+				Base[3] = false;
+				if (isTopInning)
+					team1Score--;
+				else
+					team2Score--;
+			} else if (Base[whichBaseFielded - 1]) {
+				numOuts++;
+				Base[whichBaseFielded - 1] = false;
+			}
+			if (numOuts == 3) {
+				numBalls = 0;
+				numStrikes = 0;
+				numOuts = 0;
+				if (!isTopInning)
+					inningNum++;
+				isTopInning = !isTopInning;
+			}
+			if (inningNum > totalInnings)
+				isOver = true;
+		}
+	}
+
+	// Base[3] is home plate. If someone is there they get removed
+	// Starting from array position 2, if true, set false, and move him up
+	// if a new player is added, Base[0]=true
+	public void advanceRunners(boolean newPlayerOnFirst) {
+		if (!isOver) {
+			if (Base[3])
+				Base[3] = false;
+			for (int i = 2; i >= 0; i--) {
+				if (Base[i] == true) {
+					Base[i] = false;
+					Base[i + 1] = true;
+				}
+
+			}
+			if (newPlayerOnFirst)
+				Base[0] = true;
+			if (Base[3]) {
+				if (isTopInning)
+					team1Score++;
+				else
+					team2Score++;
+			}
+		}
+	}
+
+	// returns strikes
+	public int getStrikes() {
+		return numStrikes;
+	}
+
+	// returns balls
+	public int getBalls() {
+		return numBalls;
+	}
+
+	// returns inning number
+	public int getInning() {
+		return inningNum;
+	}
+
+	// returns if it is the top of the inning
+	public boolean isTop() {
+		return isTopInning;
+	}
+
+	// returns if the game is over
+	public boolean isOver() {
+		return isOver;
+	}
+
+	// returns true if player is on first
+	public boolean playerOnFirst() {
+		return Base[0];
+	}
+
+	// returns true if player on second
+	public boolean playerOnSecond() {
+		return Base[1];
+	}
+
+	// returns true if player on third
+	public boolean playerOnThird() {
+		return Base[2];
+	}
+
+	// ifTop, return team1, !itTop, return team 2
+	public int getScore(boolean team) {
+		if (team)
+			return team1Score;
+		else
+			return team2Score;
+	}
+
+	// return outs
+	public int getOuts() {
+		return numOuts;
+	}
+
+	/**
+	 * Returns a three-character string representing the players on base, in the
+	 * order first, second, and third, where 'X' indicates a player is present and
+	 * 'o' indicates no player. For example, the string "XXo" means that there are
+	 * players on first and second but not on third.
+	 * 
+	 * @return three-character string showing players on base
+	 */
+	public String getBases() {
+		return (playerOnFirst() ? "X" : "o") + (playerOnSecond() ? "X" : "o") + (playerOnThird() ? "X" : "o");
+	}
+
+	/**
+	 * Returns a one-line string representation of the current game state. The
+	 * format is:
+	 * 
+	 * <pre>
+	 *    ooo Inning:1 (T) Score:0-0 Balls:0 Strikes:0 Outs:0
+	 * </pre>
+	 * 
+	 * The first three characters represent the players on base as returned by the
+	 * <code>getBases()</code> method. The 'T' after the inning number indicates
+	 * it's the top of the inning, and a 'B' would indicate the bottom.
+	 * 
+	 * @return one-line string representation of the game state
+	 */
+	public String toString() {
+		String bases = getBases();
+		String topOrBottom = (isTop() ? "T" : "B");
+		String fmt = "%s Inning:%d (%s) Score:%d-%d Balls:%d Strikes:%d Outs:%d";
+		return String.format(fmt, bases, getInning(), topOrBottom, getScore(true), getScore(false), getBalls(),
+				getStrikes(), getOuts());
+	}
+
+	/**
+	 * Returns a multi-line string representation of the current game state. The
+	 * format is:
+	 * 
+	 * <pre>
+	 *     o - o    Inning:1 (T)
+	 *     |   |    Score:0-0
+	 *     o - H    Balls:0 Strikes:0 Outs:0
+	 * </pre>
+	 * 
+	 * The 'T' after the inning number indicates it's the top of the inning, and a
+	 * 'B' would indicate the bottom.
+	 * 
+	 * @return multi-line string representation of current game state
+	 */
+	public String toDisplayString() {
+		String firstChar = (playerOnFirst() ? "X" : "o");
+		String secondChar = (playerOnSecond() ? "X" : "o");
+		String thirdChar = (playerOnThird() ? "X" : "o");
+		String topOrBottom = (isTopInning ? "T" : "B");
+		String firstLine = String.format("%s - %s    Inning:%d (%s)\n", secondChar, firstChar, getInning(),
+				topOrBottom);
+		String secondLine = String.format("|   |    Score:%d-%d\n", getScore(true), getScore(false));
+		String thirdLine = String.format("%s - H    Balls:%d Strikes:%d Outs:%d\n", thirdChar, getBalls(), getStrikes(),
+				getOuts());
+		return firstLine + secondLine + thirdLine;
+	}
+
+}

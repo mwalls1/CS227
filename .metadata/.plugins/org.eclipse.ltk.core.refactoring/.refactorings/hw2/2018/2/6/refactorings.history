@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename compilation unit &apos;hw2.hw2.java&apos; to &apos;CS227Baseball.java&apos;&#x0D;&#x0A;- Original project: &apos;hw2&apos;&#x0D;&#x0A;- Original element: &apos;hw2.hw2.java&apos;&#x0D;&#x0A;- Renamed element: &apos;hw2.CS227Baseball.java&apos;" description="Rename compilation unit &apos;hw2.java&apos;" flags="2" id="org.eclipse.jdt.ui.rename.compilationunit" input="/src&lt;hw2{hw2.java" name="CS227Baseball.java" references="false" stamp="1517879684258" version="1.0"/>
+</session>

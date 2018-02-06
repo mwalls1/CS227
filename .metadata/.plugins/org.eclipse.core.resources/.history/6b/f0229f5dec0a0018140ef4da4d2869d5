@@ -1,0 +1,37 @@
+package hw2;
+import static hw2.CS227Baseball.*;
+
+public class baseballTest {
+	public static void main(String[] args)
+	{
+		CS227Baseball game = new CS227Baseball(3);
+		game.pitch(POP_FLY);
+		game.pitch(POP_FLY);
+		game.pitch(POP_FLY);
+		game.pitch(POP_FLY);
+		game.pitch(POP_FLY);
+		game.pitch(POP_FLY);
+		game.pitch(POP_FLY);
+		game.pitch(POP_FLY);
+		game.pitch(POP_FLY);
+		game.pitch(POP_FLY);
+		game.pitch(POP_FLY);
+		game.pitch(POP_FLY);
+		game.pitch(POP_FLY);
+		game.pitch(POP_FLY);
+		game.pitch(POP_FLY);
+		game.pitch(POP_FLY);
+		game.pitch(POP_FLY);
+		game.pitch(POP_FLY);
+		game.pitch(POP_FLY);
+		game.pitch(POP_FLY);
+		game.pitch(POP_FLY);
+		game.pitch(POP_FLY);
+		game.pitch(POP_FLY);
+		game.pitch(POP_FLY);
+		game.pitch(POP_FLY);
+		game.pitch(POP_FLY);
+		game.pitch(POP_FLY);
+		System.out.println(game);
+	 }
+}

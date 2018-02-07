@@ -1,5 +1,5 @@
 package lab2;
-/**
+/**hello
  * Model of a basketball for use in quality control simulations.
  */
 public class Basketball

@@ -7,6 +7,7 @@ package hw2;
  * SPECIFIED IN THE JAVADOC
  * 
  * @author Mason Walls
+ *HW 2 baseball
  */
 public class CS227Baseball {
 	public static final int BALL = 0;
@@ -58,6 +59,7 @@ public class CS227Baseball {
 			//make sure a walk is given
 			if (numBalls == 4) {
 				advanceRunners(true);
+				numBalls=0;
 			}
 			//switches sides if outs=3
 			if (numOuts == 3) {
@@ -73,7 +75,6 @@ public class CS227Baseball {
 			//makes sure game ends without extra innings
 			if (inningNum > totalInnings)
 			{
-				inningNum--;
 				isOver = true;
 			}
 		}
@@ -85,6 +86,7 @@ public class CS227Baseball {
 	{
 		if (!isOver) 
 		{
+			numBalls=0;
 			numStrikes = 0;
 			//first advance is always true
 				advanceRunners(true);
@@ -135,7 +137,6 @@ public class CS227Baseball {
 			//makes sure game doesnt go to extra innings
 			if (inningNum > totalInnings)
 			{
-				inningNum--;
 				isOver = true;
 			}
 		}

@@ -1,9 +1,0 @@
-package hw2;
-
-public class baseballTest {
-	public static void main(String[] args)
-	{
-	CS227Baseball game = new CS227Baseball(3);
-	System.out.println(game);
-	 }
-}

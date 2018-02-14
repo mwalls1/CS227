@@ -27,6 +27,9 @@ public class CS227Baseball {
 	private int totalInnings;//max number of innings
 	private boolean[] Base = new boolean[4];
 
+	/**constructs a CS227 Baseball object with a set amount of innings.
+	 * 
+	 * @param givenNumInnings The number of innings in the game*/
 	public CS227Baseball(int givenNumInnings) {
 		//makes sure all bases are false/empty
 		for (int i = 0; i < 4; i++)
@@ -37,6 +40,11 @@ public class CS227Baseball {
 
 	// Takes outcome, and accounts for strike, ball, pop fly
 	// if strikes>2 or balls>3, player is out or moves the bases
+	/**
+	 * A pith where the player doesnt advance any bases
+	 * 
+	 * @param outcome What happens with the pitch
+	 */
 	public void pitch(int outcome) {
 		if (!isOver) {
 			//Adds 1 to balls
@@ -82,6 +90,10 @@ public class CS227Baseball {
 	}
 
 	// Sets num strikes to 0, and calls advanceRunners, numBases times
+	/**
+	 * A pitch were all bases move a given number of times
+	 * @param numBases The number of bases the player(s) move
+	 */
 	public void pitchWithHit(int numBases) 
 	{
 		if (!isOver) 
@@ -101,6 +113,11 @@ public class CS227Baseball {
 
 	// Calls advanceRunnesre numBases times, and sees if there is a runner on
 	// whichBaseFielded-1, if so, they are out
+	/**
+	 * A pith where players advance bases and the fielding team throws the ball to try and get an out
+	 * @param numBases The number of bases the player(s) move
+	 * @param whichBaseFielded The base at which the ball is thrown to
+	 */
 	public void pitchWithHitAndOut(int numBases, int whichBaseFielded) {
 		if (!isOver) {
 			numStrikes = 0;
@@ -145,6 +162,10 @@ public class CS227Baseball {
 	// Base[3] is home plate. If someone is there they get removed
 	// Starting from array position 2, if true, set false, and move him up
 	// if a new player is added, Base[0]=true
+	/**
+	 * Moves every player one base
+	 * @param newPlayerOnFirst Adds a player to first base if true
+	 */
 	public void advanceRunners(boolean newPlayerOnFirst) {
 		if (!isOver) {
 			if (Base[3])
@@ -168,46 +189,83 @@ public class CS227Baseball {
 	}
 
 	// returns strikes
+	/**
+	 * Redturn the number of strikes for the batter
+	 * @return Number of strikes of the current batter
+	 */
 	public int getStrikes() {
 		return numStrikes;
 	}
 
 	// returns balls
+	/**
+	 * Return the number of balls for the batter
+	 * @return Number of balls of the current batter
+	 */
 	public int getBalls() {
 		return numBalls;
 	}
 
 	// returns inning number
+	/**
+	 * Return the current inning number
+	 * @return The inning that is being played
+	 */
 	public int getInning() {
 		return inningNum;
 	}
 
 	// returns if it is the top of the inning
+	/**
+	 * Returns if it the top of the inning
+	 * @return True if it is the top of the current inning
+	 */
 	public boolean isTop() {
 		return isTopInning;
 	}
 
 	// returns if the game is over
+	/**
+	 * Returns if the game is over
+	 * @return True if the max number of innings is exceeded
+	 */
 	public boolean isOver() {
 		return isOver;
 	}
 
 	// returns true if player is on first
+	/**
+	 * Returns true if there is a player on first
+	 * @return player on first
+	 */
 	public boolean playerOnFirst() {
 		return Base[0];
 	}
 
 	// returns true if player on second
+	/**
+	 * Returns true if there is a player on second
+	 * @return player on second
+	 */
 	public boolean playerOnSecond() {
 		return Base[1];
 	}
 
 	// returns true if player on third
+	/**
+	 * Returns true if there is a player on third
+	 * @return player on third
+	 */
 	public boolean playerOnThird() {
 		return Base[2];
 	}
 
 	// ifTop, return team1, !itTop, return team 2
+	/**
+	 * Returns the score of the given team
+	 * @param team the given teams score
+	 * @return score of team
+	 */
 	public int getScore(boolean team) {
 		if (team)
 			return team1Score;
@@ -216,6 +274,10 @@ public class CS227Baseball {
 	}
 
 	// return outs
+	/**
+	 * Returns the number of outs
+	 * @return Number of outs
+	 */
 	public int getOuts() {
 		return numOuts;
 	}

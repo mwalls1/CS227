@@ -3,7 +3,7 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-import balloon4.Balloon;
+import balloon.Balloon;
 public class BalloonTests {
 		private static final double EPSILON = 10e-07;
 	    @Test
@@ -53,7 +53,7 @@ public class BalloonTests {
 	    @Test public void blowAfterPop()
 	    {
 	    	Balloon b = new Balloon(15);
-	    	b.blow(20);
+	    	b.pop();
 	    	assertEquals(true,b.isPopped());
 	    	assertEquals(0,b.getRadius(),EPSILON);
 	    	b.blow(5);

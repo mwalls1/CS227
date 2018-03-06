@@ -13,17 +13,17 @@ public class SimpleLoops
    */
   public static void main(String[] args)
   {
-   // int count = countP("Mississippi");
-    //System.out.println(count);
+     int count = countP("Mississippi");
+    System.out.println(count);
     
-    //int result = findLastP("Mississippi");
-    //System.out.println(result);
+    int result1 = findLastP("Mississippi");
+    System.out.println(result1);
    
-	int result = findFirstP("stop");
-    System.out.println(result);
+	int result2 = findFirstP("stop");
+    System.out.println(result2);
 
-    //int result = findFirstP("xxxyyyzzz");
-    //System.out.println(result);
+    int result3 = findFirstP("xxxyyyzzz");
+    System.out.println(result3);
   }
 
   /**

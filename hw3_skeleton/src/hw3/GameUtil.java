@@ -42,6 +42,7 @@ public class GameUtil {
 	}
 
 	/**
+	 * @author Mason Walls
 	 * Returns the score for a single tile value. Tiles with value less than 3 have
 	 * score zero. All other values result from starting with value 3 and doubling N
 	 * times, for some N; the score is 3 to the power N + 1. For example: the value
@@ -137,6 +138,7 @@ public class GameUtil {
 	}
 
 	/**
+	 * @author Mason Walls
 	 * Generate a new tile value using the given instance of Random. Values are
 	 * generated such that there are 40% 1's, 40% 2's, 10% 3's, and 10% 6's.
 	 * 
@@ -216,6 +218,7 @@ public class GameUtil {
 	}
 
 	/**
+	 * @author Mason Walls
 	 * Shifts the array elements to the left according to the rules of the Threes
 	 * game. This method only operates on a one-dimensional array of integers
 	 * representing the tile values in one row or column. The Game class can use

@@ -90,7 +90,7 @@ public class Game
   }
   
   /**
-   * @author Mason Walls
+   * 
    * Constructs a game with a grid of the given size, using the given
    * instance of <code>Random</code> for the random number generator.
    * The initial grid is produced by the <code>initializeNewGrid</code>
@@ -115,7 +115,7 @@ public class Game
   }
   
   /**
-   * @author Mason Walls
+   * 
    * Returns the value in the cell at the given row and column.
    * @param row
    *   given row
@@ -131,7 +131,7 @@ public class Game
   }
   
   /**
-   * @author Mason Walls
+   * 
    * Sets the value of the cell at the given row and column.
    * <em>NOTE: This method should not be used by clients outside
    * of a testing environment.</em>
@@ -149,7 +149,7 @@ public class Game
   }
   
   /**
-   * @author Mason Walls
+   * 
    * Returns the size of this game's grid.
    * @return
    *   size of the grid
@@ -161,7 +161,7 @@ public class Game
   }
   
   /**
-   * @author Mason Walls
+   * 
    * Returns the current score.
    * @return
    *   score for this game
@@ -173,7 +173,7 @@ public class Game
   }
   
   /**
-   * @author Mason Walls
+   * 
    * Copy a row or column from the grid into a new one-dimensional array.  
    * There are four possible actions depending on the given direction:
    * <ul>
@@ -233,7 +233,7 @@ public class Game
   }
     
   /**
-   * @author Mason Walls
+   * 
    * Updates the grid by copying the given one-dimensional array into
    * a row or column of the grid.
    * There are four possible actions depending on the given direction:
@@ -294,7 +294,7 @@ public class Game
   }
 
   /**
-   * @author Mason Walls
+   * 
    * Plays one step of the game by shifting the grid in the given direction.
    * Returns a list of Move objects describing all moves performed.  All Move 
    * objects must include a valid value for <code>getRowOrColumn()</code> and 
@@ -344,7 +344,7 @@ public class Game
   }
 
   /**
-   * @author Mason Walls
+   * 
    * Reverts the shift performed in a previous call to <code>shiftGrid()</code>, 
    * provided that neither <code>newTile()</code> nor <code>undo()</code>
    * has been called. If there was no previous call to <code>shiftGrid()</code> 
@@ -366,7 +366,7 @@ public class Game
   }
   
   /**
-   * @author Mason Walls
+   * 
    * Generates a new tile and places its value in the grid, provided that
    * there was a previous call to  <code>shiftGrid</code> without a 
    * corresponding call to <code>undo</code> or <code>newTile</code>.  
@@ -407,7 +407,7 @@ public class Game
   }
   
   /**
-   * @author Mason Walls
+   * 
    * Returns the value that will appear on the next tile generated in a call to 
    * <code>newTile</code>.  This is an accessor method that does not modify
    * the game state.

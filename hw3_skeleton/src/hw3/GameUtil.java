@@ -42,7 +42,7 @@ public class GameUtil {
 	}
 
 	/**
-	 * @author Mason Walls
+	 * 
 	 * Returns the score for a single tile value. Tiles with value less than 3 have
 	 * score zero. All other values result from starting with value 3 and doubling N
 	 * times, for some N; the score is 3 to the power N + 1. For example: the value
@@ -138,7 +138,7 @@ public class GameUtil {
 	}
 
 	/**
-	 * @author Mason Walls
+	 * 
 	 * Generate a new tile value using the given instance of Random. Values are
 	 * generated such that there are 40% 1's, 40% 2's, 10% 3's, and 10% 6's.
 	 * 
@@ -218,7 +218,6 @@ public class GameUtil {
 	}
 
 	/**
-	 * @author Mason Walls
 	 * Shifts the array elements to the left according to the rules of the Threes
 	 * game. This method only operates on a one-dimensional array of integers
 	 * representing the tile values in one row or column. The Game class can use
@@ -256,7 +255,7 @@ public class GameUtil {
 			for (int i = 0; i < arr.length - 1; i++)
 			{
 				arr[i] = arr[i + 1];
-				if(!(arr[i]==0||arr[i+1]==0))
+				if(!(arr[i]==0&&arr[i+1]==0))
 					moves.add(new Move(i+1,i,arr[i]));//adding new move if the two tiles arent 0
 			}
 			arr[arr.length - 1] = 0;
@@ -267,7 +266,7 @@ public class GameUtil {
 					for (int j = 1; j < arr.length - 1; j++)//shift the rest of the array because they cant merge
 					{
 						arr[j] = arr[j + 1];
-						if(!(arr[j]==0||arr[j+1]==0))
+						if(!(arr[j]==0&&arr[j+1]==0))
 								moves.add(new Move(j+1,j,arr[j]));
 					}
 					arr[arr.length - 1] = 0;
@@ -285,7 +284,7 @@ public class GameUtil {
 							for (int j = i+1; j < arr.length-1; j++)//shift down the rest of the array
 							{
 								arr[j] = arr[j + 1];
-								if(!(arr[j]==0||arr[j+1]==0))
+								if(!(arr[j]==0&&arr[j+1]==0))
 										moves.add(new Move(j+1,j,arr[j]));//add moves if a non zero tile is moving
 							}
 							arr[arr.length - 1] = 0;
@@ -293,7 +292,7 @@ public class GameUtil {
 						else if(arr[i]==0)
 						{
 							arr[i] = arr[i+1];//moves a tile if the cell behind it is zero
-							if(!(arr[i]==0||arr[i+1]==0))
+							if(!(arr[i]==0&&arr[i+1]==0))
 								moves.add(new Move(i+1,i,arr[i]));
 							arr[i+1] = 0;//sets old cell to 0
 						}

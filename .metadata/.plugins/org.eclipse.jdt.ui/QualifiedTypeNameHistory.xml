@@ -2,9 +2,17 @@
 <qualifiedTypeNameHistroy>
 <fullyQualifiedTypeName name="api.TilePosition"/>
 <fullyQualifiedTypeName name="api.Move"/>
-<fullyQualifiedTypeName name="java.util.Arrays"/>
-<fullyQualifiedTypeName name="java.util.Random"/>
 <fullyQualifiedTypeName name="ui.ConsoleUI"/>
 <fullyQualifiedTypeName name="api.Direction"/>
 <fullyQualifiedTypeName name="java.lang.System"/>
+<fullyQualifiedTypeName name="api.Shape"/>
+<fullyQualifiedTypeName name="java.awt.Color"/>
+<fullyQualifiedTypeName name="java.util.Arrays"/>
+<fullyQualifiedTypeName name="java.util.Random"/>
+<fullyQualifiedTypeName name="api.Position"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="api.Block"/>
+<fullyQualifiedTypeName name="java.lang.Math"/>
+<fullyQualifiedTypeName name="java.lang.reflect.Array"/>
+<fullyQualifiedTypeName name="java.awt.Shape"/>
 </qualifiedTypeNameHistroy>

@@ -13,15 +13,16 @@
 	<section name="ExternalProjectImportWizard">
 		<item value="true" key="WizardProjectsImportPage.STORE_NESTED_PROJECTS"/>
 		<item value="true" key="WizardProjectsImportPage.STORE_COPY_PROJECT_ID"/>
-		<item value="true" key="WizardProjectsImportPage.STORE_ARCHIVE_SELECTED"/>
+		<item value="false" key="WizardProjectsImportPage.STORE_ARCHIVE_SELECTED"/>
 		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
+			<item value="C:\Users\walls\Desktop\hw4_skeleton"/>
 			<item value=""/>
 			<item value="Z:\CS 227\workspace\project3"/>
 			<item value="Z:\CS 227\workspace\project2"/>
 		</list>
 		<list key="WizardProjectsImportPage.STORE_ARCHIVES">
-			<item value="C:\Users\Mason\Downloads\hw3_skeleton.zip"/>
 			<item value=""/>
+			<item value="C:\Users\Mason\Downloads\hw3_skeleton.zip"/>
 		</list>
 	</section>
 	<section name="WORKBENCH_SETTINGS">
